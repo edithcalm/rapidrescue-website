@@ -103,6 +103,24 @@ const WaitlistForm = () => {
         </select>
       </div>
       <div>
+        <label htmlFor="interest" className="block text-sm font-medium text-foreground mb-1.5">What interests you most?</label>
+        <select
+          id="interest"
+          name="interest"
+          required
+          className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+        >
+          <option value="">Select your interest</option>
+          <option>Personal Safety</option>
+          <option>Family Protection</option>
+          <option>Community Response Network</option>
+          <option>Wearable Technology</option>
+          <option>Student Safety Plan</option>
+          <option>Corporate/Institutional Safety</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
         <label htmlFor="student" className="block text-sm font-medium text-foreground mb-1.5">Are you a student?</label>
         <select
           id="student"

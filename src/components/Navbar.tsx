@@ -6,7 +6,6 @@ import RRLogo from "./RRLogo";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
-  { to: "/mission", label: "Mission" },
   { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ];
