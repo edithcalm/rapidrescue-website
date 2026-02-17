@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { AlertTriangle, Radio, Users, Shield, Heart, Activity, Smartphone, Watch } from "lucide-react";
 import nairobiSkyline from "@/assets/nairobi-skyline.jpg";
-import wearableBracelet from "@/assets/wearable-bracelet.jpg";
+import wearableAfrican from "@/assets/wearable-african.png";
+import wearableStealth from "@/assets/wearable-stealth.png";
+import wearableOcean from "@/assets/wearable-ocean.png";
+import wearableModel from "@/assets/wearable-model.jpg";
 import SectionHeading from "@/components/SectionHeading";
 
 const ecosystemLayers = [
@@ -109,33 +112,62 @@ const Index = () => {
       {/* Wearable */}
       <section className="py-20 md:py-28 section-alt">
         <div className="container-narrow">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionHeading title="The Wearable" centered={false} />
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 shrink-0">
-                    <Watch className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Phase 1: Minimalist Bracelet</h4>
-                    <p className="text-sm text-muted-foreground">A sleek, unobtrusive wearable that syncs with your phone via low-energy Bluetooth and GPS.</p>
-                  </div>
+          <SectionHeading
+            title="The Wearable That Connects You to Help"
+            subtitle="One tap sends your location, medical profile, and alert to responders, security, and your personal circle — all at once."
+          />
+
+          {/* Model + description */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative rounded-2xl overflow-hidden card-shadow">
+              <img src={wearableModel} alt="Woman wearing Rapid Rescue bracelet sending an alert" className="w-full aspect-square object-cover" />
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 shrink-0">
+                  <Radio className="w-5 h-5 text-primary" />
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 shrink-0">
-                    <Smartphone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Phase 2: Discreet Jewelry Line</h4>
-                    <p className="text-sm text-muted-foreground">Stylish and discreet—emergency tech that looks like fashion, not a medical device.</p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">Instant Alert Dispatch</h4>
+                  <p className="text-sm text-muted-foreground">Press once to send your GPS location and medical profile to the nearest hospital, private security, and your emergency contacts simultaneously.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 shrink-0">
+                  <Watch className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">Low-Energy Bluetooth + GPS</h4>
+                  <p className="text-sm text-muted-foreground">Syncs seamlessly with your phone for continuous location tracking while preserving battery life throughout the day.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 shrink-0">
+                  <Smartphone className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">Stylish & Discreet</h4>
+                  <p className="text-sm text-muted-foreground">Available in multiple African-inspired designs — emergency tech that looks like fashion, not a medical device.</p>
                 </div>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden card-shadow">
-              <img src={wearableBracelet} alt="Rapid Rescue wearable bracelet" className="w-full aspect-square object-cover" />
-            </div>
+          </div>
+
+          {/* Three bracelet variants */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {[
+              { src: wearableAfrican, name: "Heritage Edition", desc: "Vibrant African-inspired pattern" },
+              { src: wearableStealth, name: "Stealth Edition", desc: "Subtle, professional design" },
+              { src: wearableOcean, name: "Ocean Edition", desc: "Cool tones, relaxed style" },
+            ].map((v) => (
+              <div key={v.name} className="text-center group">
+                <div className="rounded-2xl bg-muted p-6 mb-4 transition-all duration-300 group-hover:card-shadow-hover group-hover:-translate-y-1">
+                  <img src={v.src} alt={v.name} className="w-full max-w-[220px] mx-auto aspect-square object-contain" />
+                </div>
+                <h4 className="font-semibold text-foreground mb-1">{v.name}</h4>
+                <p className="text-sm text-muted-foreground">{v.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
