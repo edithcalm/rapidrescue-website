@@ -18,9 +18,25 @@ const AnimatedSection = ({ children, className = "", delay = 0 }: { children: Re
 const Contact = () => {
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("contactName") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("contactEmail") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("contactMessage") as HTMLTextAreaElement).value;
+
+    try {
+      const mailtoLink = `mailto:edithkaranja02@gmail.com?subject=${encodeURIComponent(`Contact from ${name}`)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
+      window.location.href = mailtoLink;
+      setSent(true);
+    } catch {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -48,6 +64,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Address</h4>
+                      <p className="text-sm text-muted-foreground">Manga House, 9 Kiambere Rd,</p>
                       <p className="text-sm text-muted-foreground">Upper Hill, Nairobi, Kenya</p>
                     </div>
                   </div>
@@ -104,8 +121,8 @@ const Contact = () => {
                       <label htmlFor="contactMessage" className="block text-sm font-medium text-foreground mb-1.5">Message</label>
                       <textarea id="contactMessage" required rows={5} className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none" placeholder="How can we help?" />
                     </div>
-                    <button type="submit" className="w-full rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 active:scale-[0.98]">
-                      Send Message
+                    <button type="submit" disabled={sending} className="w-full rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50">
+                      {sending ? "Sending..." : "Send Message"}
                     </button>
                   </form>
                 )}
