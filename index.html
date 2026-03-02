@@ -23,7 +23,21 @@
 </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app">
+      <nav id="navbar"></nav>
+      <main id="main-content"></main>
+      <footer id="footer"></footer>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./src/styles.css" rel="stylesheet">
+    <script src="./src/components/Navbar.js"></script>
+    <script src="./src/components/Footer.js"></script>
+    <script src="./src/pages/Index.js"></script>
+    <script src="./src/pages/About.js"></script>
+    <script src="./src/pages/Services.js"></script>
+    <script src="./src/pages/Contact.js"></script>
+    <script src="./src/pages/Waitlist.js"></script>
+    <script src="./src/pages/NotFound.js"></script>
+    <script src="./src/scripts.js"></script>
   </body>
 </html>
