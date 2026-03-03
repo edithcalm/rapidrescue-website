@@ -16,10 +16,10 @@ class NotFound extends Page {
               
               <!-- Action Buttons -->
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/" class="btn-primary" data-route>
+                <a href="/" class="btn-primary bg-red-600 text-white hover:bg-red-700 hover-lift" data-route>
                   Go Home
                 </a>
-                <a href="/contact" class="btn-secondary" data-route>
+                <a href="/contact" class="inline-block px-6 py-3 rounded-lg font-semibold border-2 border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-300 hover-lift" data-route>
                   Contact Support
                 </a>
               </div>
@@ -31,32 +31,20 @@ class NotFound extends Page {
                   <div>
                     <h3 class="font-medium text-gray-900 mb-2">Popular Pages</h3>
                     <ul class="space-y-2">
-                      <li><a href="/" class="text-red-600 hover:text-red-700 transition-colors" data-route>Home</a></li>
-                      <li><a href="/about" class="text-red-600 hover:text-red-700 transition-colors" data-route>About Us</a></li>
-                      <li><a href="/services" class="text-red-600 hover:text-red-700 transition-colors" data-route>Services</a></li>
+                      <li><a href="/" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>Home</a></li>
+                      <li><a href="/about" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>About Us</a></li>
+                      <li><a href="/services" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>Services</a></li>
                     </ul>
                   </div>
                   <div>
                     <h3 class="font-medium text-gray-900 mb-2">Get Help</h3>
                     <ul class="space-y-2">
-                      <li><a href="/contact" class="text-red-600 hover:text-red-700 transition-colors" data-route>Contact Support</a></li>
-                      <li><a href="/waitlist" class="text-red-600 hover:text-red-700 transition-colors" data-route>Join Waitlist</a></li>
-                      <li><a href="mailto:info@rapidrescue.co.ke" class="text-red-600 hover:text-red-700 transition-colors">Email Us</a></li>
+                      <li><a href="/contact" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>Contact Support</a></li>
+                      <li><a href="/waitlist" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>Join Waitlist</a></li>
+                      <li><a href="mailto:rapidrescue@gmail.com" class="text-red-600 hover:text-red-700 transition-colors link-hover">Email Us</a></li>
                     </ul>
                   </div>
                 </div>
-              </div>
-              
-              <!-- Emergency Info -->
-              <div class="mt-8 bg-red-50 border border-red-200 rounded-xl p-6">
-                <div class="flex items-center justify-center mb-3">
-                  ${this.getIcon('alert-triangle', 'w-6 h-6 text-red-600')}
-                </div>
-                <h3 class="font-semibold text-red-900 mb-2">Need Emergency Help?</h3>
-                <p class="text-red-700 text-sm mb-3">
-                  If you're experiencing an emergency, please contact emergency services immediately.
-                </p>
-                <p class="text-red-600 font-bold">Emergency: 999 / 112</p>
               </div>
             </div>
           </div>
@@ -74,4 +62,4 @@ class NotFound extends Page {
 }
 
 // Export for use in main app
-window.NotFound = NotFound;
+window.NotFound = NotFound; 

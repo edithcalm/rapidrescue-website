@@ -45,11 +45,11 @@ class Services extends Page {
         <!-- Services Grid -->
         <section class="py-20 md:py-28">
           <div class="container mx-auto px-4 max-w-4xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-container">
               ${this.services.map((service, i) => `
-                <div class="bg-white rounded-xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate" style="animation-delay: ${i * 150}ms">
+                <div class="bg-white rounded-xl p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-animate card-hover stagger-item pulse-on-visible" style="animation-delay: ${i * 150}ms">
                   <div class="flex items-start justify-between mb-6">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 transition-transform duration-300 hover:scale-110">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110 icon-container">
                       ${this.getIcon(service.icon, 'w-6 h-6 text-red-600')}
                     </div>
                     <span class="px-3 py-1 text-xs font-semibold rounded-full ${
@@ -86,7 +86,7 @@ class Services extends Page {
                 { step: '4', title: 'Coordinated Response', desc: 'Professional responders arrive with complete patient information' }
               ].map((item, i) => `
                 <div class="text-center scroll-animate" style="animation-delay: ${i * 100}ms">
-                  <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-600 text-white text-xl font-bold mb-6 transition-transform duration-300 hover:scale-110">
+                  <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-600 text-white text-xl font-bold mb-6 transition-transform duration-300 hover:scale-110 icon-container">
                     ${item.step}
                   </div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-3">${item.title}</h3>
@@ -107,7 +107,7 @@ class Services extends Page {
               </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-container">
               ${[
                 { icon: 'map-pin', title: 'Precise Geolocation', desc: 'Accurate location tracking within 5 meters for rapid response' },
                 { icon: 'database', title: 'Medical Profiles', desc: 'Secure storage of critical medical information for instant access' },
@@ -116,8 +116,8 @@ class Services extends Page {
                 { icon: 'zap', title: 'Instant Alerts', desc: 'Sub-second notification to all relevant responders' },
                 { icon: 'users', title: 'Community Network', desc: 'Leverage nearby users for immediate assistance' }
               ].map((feature, i) => `
-                <div class="bg-white rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate" style="animation-delay: ${i * 80}ms">
-                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110">
+                <div class="bg-white rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate card-hover stagger-item" style="animation-delay: ${i * 80}ms">
+                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110 icon-container">
                     ${this.getIcon(feature.icon, 'w-6 h-6 text-red-600')}
                   </div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-2">${feature.title}</h3>
@@ -138,30 +138,18 @@ class Services extends Page {
               </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-container">
               ${[
-                {
-                  name: 'Student Plan',
-                  price: 'KES 100',
-                  period: '/month',
-                  features: [
-                    'Basic emergency alerts',
-                    'Community response network',
-                    'Mobile app access',
-                    'Basic medical profile'
-                  ],
-                  highlighted: false
-                },
                 {
                   name: 'Standard Plan',
                   price: 'KES 500',
                   period: '/month',
                   features: [
-                    'All Student features',
                     'Professional responder alerts',
                     'Hospital integration',
                     'Advanced medical profile',
-                    'Priority routing'
+                    'Priority routing',
+                    'Community response network'
                   ],
                   highlighted: true
                 },
@@ -175,6 +163,19 @@ class Services extends Page {
                     'Family coordination',
                     'Shared emergency contacts',
                     'Priority support'
+                  ],
+                  highlighted: false
+                },
+                {
+                  name: 'Corporate Plan',
+                  price: 'KES 2,500',
+                  period: '/month',
+                  features: [
+                    'Enterprise dashboard',
+                    'Bulk member management',
+                    'API access for security teams',
+                    'Custom emergency protocols',
+                    'Dedicated account manager'
                   ],
                   highlighted: false
                 }
@@ -200,7 +201,7 @@ class Services extends Page {
                       </li>
                     `).join('')}
                   </ul>
-                  <a href="/waitlist" class="block w-full text-center py-3 px-4 rounded-lg font-semibold transition-colors ${
+                  <a href="/waitlist" class="block w-full text-center py-3 px-4 rounded-lg font-semibold transition-colors hover-lift ${
                     plan.highlighted 
                       ? 'bg-white text-red-600 hover:bg-gray-100' 
                       : 'bg-red-600 text-white hover:bg-red-700'
@@ -220,7 +221,7 @@ class Services extends Page {
             <p class="text-white/80 mb-8 max-w-lg mx-auto">
               Join thousands of Kenyans who are already part of the emergency response revolution.
             </p>
-            <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100" data-route>
+            <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100 hover-lift" data-route>
               Join the Waitlist
             </a>
           </div>
@@ -238,6 +239,7 @@ class Services extends Page {
       'map-pin': '<svg class="' + className + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>',
       'database': '<svg class="' + className + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>',
       'smartphone': '<svg class="' + className + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>',
+      'shield': '<svg class="' + className + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>',
       'zap': '<svg class="' + className + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>'
     };
     return icons[name] || '';

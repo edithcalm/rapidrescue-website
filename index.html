@@ -1,43 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Rapid Rescue — Your Safety, Our Priority</title>
-    <meta name="description" content="Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem in Kenya.">
-    <meta name="author" content="Rapid Rescue" />
 
-    
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cb09d08b-7089-4c6f-a6e3-3c6c497329f1/id-preview-c054d55a--fdd9ff69-dece-4d40-bc66-185d268b1037.lovable.app-1771338076698.png">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapid Rescue — Your Safety, Our Priority</title>
+  <meta name="description"
+    content="Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem in Kenya.">
+  <meta name="author" content="Rapid Rescue" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cb09d08b-7089-4c6f-a6e3-3c6c497329f1/id-preview-c054d55a--fdd9ff69-dece-4d40-bc66-185d268b1037.lovable.app-1771338076698.png">
-    <meta property="og:title" content="Rapid Rescue — Your Safety, Our Priority">
+  <!-- CSS Files -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./src/styles.css" rel="stylesheet">
+
+  <!-- Meta tags for social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:image"
+    content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cb09d08b-7089-4c6f-a6e3-3c6c497329f1/id-preview-c054d55a--fdd9ff69-dece-4d40-bc66-185d268b1037.lovable.app-1771338076698.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Lovable" />
+  <meta name="twitter:image"
+    content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cb09d08b-7089-4c6f-a6e3-3c6c497329f1/id-preview-c054d55a--fdd9ff69-dece-4d40-bc66-185d268b1037.lovable.app-1771338076698.png">
+  <meta property="og:title" content="Rapid Rescue — Your Safety, Our Priority">
   <meta name="twitter:title" content="Rapid Rescue — Your Safety, Our Priority">
-  <meta property="og:description" content="Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem in Kenya.">
-  <meta name="twitter:description" content="Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem in Kenya.">
+  <meta property="og:description"
+    content="Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem in Kenya.">
+  <meta name="twitter:description"
+    content="Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem in Kenya.">
 </head>
 
-  <body>
-    <div id="app">
-      <nav id="navbar"></nav>
-      <main id="main-content"></main>
-      <footer id="footer"></footer>
-    </div>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
-    <link href="./src/styles.css" rel="stylesheet">
-    <script src="./src/components/Navbar.js"></script>
-    <script src="./src/components/Footer.js"></script>
-    <script src="./src/pages/Index.js"></script>
-    <script src="./src/pages/About.js"></script>
-    <script src="./src/pages/Services.js"></script>
-    <script src="./src/pages/Contact.js"></script>
-    <script src="./src/pages/Waitlist.js"></script>
-    <script src="./src/pages/NotFound.js"></script>
-    <script src="./src/scripts.js"></script>
-  </body>
+<body>
+  <div id="app">
+    <nav id="navbar"></nav>
+    <main id="main-content"></main>
+    <footer id="footer"></footer>
+  </div>
+
+  <!-- Load JavaScript files -->
+  <script src="./src/core/Page.js"></script>
+  <script src="./src/core/WaitlistCounter.js"></script>
+  <script src="./src/components/Navbar.js"></script>
+  <script src="./src/components/Footer.js"></script>
+  <script src="./src/pages/Index.js"></script>
+  <script src="./src/pages/About.js"></script>
+  <script src="./src/pages/Services.js"></script>
+  <script src="./src/pages/Contact.js"></script>
+  <script src="./src/pages/Waitlist.js"></script>
+  <script src="./src/pages/NotFound.js"></script>
+  <script src="./src/scripts.js"></script>
+</body>
+
 </html>

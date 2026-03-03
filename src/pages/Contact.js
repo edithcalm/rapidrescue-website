@@ -62,7 +62,7 @@ class Contact extends Page {
                   <button 
                     type="submit" 
                     id="contact-submit"
-                    class="btn-primary w-full flex items-center justify-center"
+                    class="btn-primary bg-red-600 text-white hover:bg-red-700 hover-lift w-full flex items-center justify-center"
                     ${this.sending ? 'disabled' : ''}
                   >
                     ${this.sending ? '<div class="spinner mr-2"></div>Sending...' : 'Send Message'}
@@ -89,8 +89,8 @@ class Contact extends Page {
                     </div>
                     <div>
                       <h3 class="font-semibold text-gray-900 mb-1">Office Location</h3>
-                      <p class="text-gray-600">Nairobi, Kenya</p>
-                      <p class="text-sm text-gray-500">Visit us by appointment</p>
+                      <p class="text-gray-600">Manga House, 9 Kiambere Rd</p>
+                      <p class="text-gray-600">Upper Hill, Nairobi, Kenya</p>
                     </div>
                   </div>
 
@@ -100,8 +100,8 @@ class Contact extends Page {
                     </div>
                     <div>
                       <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
-                      <p class="text-gray-600">+254 700 000 000</p>
-                      <p class="text-sm text-gray-500">Mon-Fri, 9AM-6PM EAT</p>
+                      <p class="text-gray-600">+254 721 606 409</p>
+                      <p class="text-gray-600">+254 792 868 385</p>
                     </div>
                   </div>
 
@@ -111,83 +111,25 @@ class Contact extends Page {
                     </div>
                     <div>
                       <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                      <p class="text-gray-600">info@rapidrescue.co.ke</p>
-                      <p class="text-sm text-gray-500">We respond within 24 hours</p>
+                      <p class="text-gray-600">rapidrescue@gmail.com</p>
                     </div>
                   </div>
-                </div>
-
-                <!-- Business Hours -->
-                <div class="bg-gray-50 rounded-xl p-6">
-                  <h3 class="font-semibold text-gray-900 mb-4">Business Hours</h3>
-                  <div class="space-y-2 text-sm">
-                    <div class="flex justify-between">
-                      <span class="text-gray-600">Monday - Friday</span>
-                      <span class="text-gray-900 font-medium">9:00 AM - 6:00 PM</span>
-                    </div>
-                    <div class="flex justify-between">
-                      <span class="text-gray-600">Saturday</span>
-                      <span class="text-gray-900 font-medium">10:00 AM - 2:00 PM</span>
-                    </div>
-                    <div class="flex justify-between">
-                      <span class="text-gray-600">Sunday</span>
-                      <span class="text-gray-900 font-medium">Closed</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Emergency Contact -->
-                <div class="bg-red-50 border border-red-200 rounded-xl p-6">
-                  <h3 class="font-semibold text-red-900 mb-2">Emergency Support</h3>
-                  <p class="text-red-700 text-sm mb-3">
-                    For immediate emergency assistance, please call emergency services or use our mobile app to trigger an alert.
-                  </p>
-                  <p class="text-red-600 font-semibold">Emergency: 999 / 112</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section class="py-20 md:py-28 bg-gray-50">
-          <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-16 scroll-animate">
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Quick answers to common questions about Rapid Rescue.
-              </p>
-            </div>
-
-            <div class="space-y-4">
-              ${[
-                {
-                  q: 'How quickly will responders be notified?',
-                  a: 'Our system sends alerts within seconds of activation. Nearby users and professional responders are notified simultaneously.'
-                },
-                {
-                  q: 'Is my medical information secure?',
-                  a: 'Yes, all medical data is encrypted end-to-end and only shared with authorized responders during emergencies.'
-                },
-                {
-                  q: 'What areas do you currently serve?',
-                  a: 'We are launching in Nairobi with plans to expand to other major Kenyan cities based on demand.'
-                },
-                {
-                  q: 'How much does the service cost?',
-                  a: 'We offer various plans starting from KES 100/month for students, with family and premium options available.'
-                }
-              ].map((faq, i) => `
-                <div class="bg-white rounded-xl p-6 shadow-lg scroll-animate" style="animation-delay: ${i * 100}ms">
-                  <div class="flex items-start justify-between">
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-900 mb-2">${faq.q}</h3>
-                      <p class="text-gray-600 leading-relaxed">${faq.a}</p>
-                    </div>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
+        <!-- CTA Section -->
+        <section class="py-16 md:py-24 bg-red-600">
+          <div class="container mx-auto px-4 max-w-4xl text-center scroll-animate">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Want Early Access?</h2>
+            <p class="text-white/80 mb-8 max-w-lg mx-auto">
+              Be among the first to experience Rapid Rescue. Join our waitlist today.
+            </p>
+            <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100 hover-lift" data-route>
+              Join the Waitlist
+            </a>
           </div>
         </section>
       </main>
@@ -217,38 +159,34 @@ class Contact extends Page {
         this.sending = true;
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<div class="spinner mr-2"></div>Sending...';
+        submitBtn.classList.add('loading');
 
         const formData = new FormData(form);
-        const name = formData.get('contactName');
-        const email = formData.get('contactEmail');
-        const message = formData.get('contactMessage');
-
-        try {
-          // Create mailto link
-          const subject = encodeURIComponent(`Contact from ${name}`);
-          const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
-          const mailtoLink = `mailto:edithkaranja02@gmail.com?subject=${subject}&body=${body}`;
-          
-          // Open email client
-          window.location.href = mailtoLink;
+        const successDiv = document.getElementById('contact-success');
+        
+        // Simulate API call
+        setTimeout(() => {
+          this.sending = false;
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Send Message';
+          submitBtn.classList.remove('loading');
           
           // Show success message
           successDiv.classList.remove('hidden');
+          successDiv.classList.add('slide-in-up');
+          
+          // Reset form
           form.reset();
           
           // Hide success message after 5 seconds
           setTimeout(() => {
-            successDiv.classList.add('hidden');
+            successDiv.classList.add('fade-out');
+            setTimeout(() => {
+              successDiv.classList.add('hidden');
+              successDiv.classList.remove('fade-out', 'slide-in-up');
+            }, 500);
           }, 5000);
-          
-        } catch (error) {
-          console.error('Error sending message:', error);
-          alert('Something went wrong. Please try again.');
-        } finally {
-          this.sending = false;
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
-        }
+        }, 2000);
       });
     }
   }

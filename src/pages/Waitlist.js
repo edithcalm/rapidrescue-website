@@ -11,7 +11,12 @@ class Waitlist extends Page {
         <!-- Hero Section -->
         <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gray-50">
           <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 scroll-animate">Join the Waitlist</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 scroll-animate">Join the Wait List</h1>
+            <div class="flex items-center justify-center gap-2 mb-4 scroll-animate">
+              <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+              <span class="text-2xl font-bold text-red-600 waitlist-count">0</span>
+              <span class="text-2xl text-gray-500">People Already Joined</span>
+            </div>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-animate">
               Be among the first to experience Rapid Rescue when we launch. Sign up for early access and updates.
             </p>
@@ -37,7 +42,7 @@ class Waitlist extends Page {
               </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-container">
               ${[
                 {
                   icon: 'star',
@@ -70,114 +75,14 @@ class Waitlist extends Page {
                   desc: 'Premium safety features included for early members'
                 }
               ].map((benefit, i) => `
-                <div class="bg-white rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate" style="animation-delay: ${i * 80}ms">
-                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110">
+                <div class="bg-white rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate card-hover stagger-item pulse-on-visible" style="animation-delay: ${i * 80}ms">
+                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110 icon-container">
                     ${this.getIcon(benefit.icon, 'w-6 h-6 text-red-600')}
                   </div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-2">${benefit.title}</h3>
                   <p class="text-sm text-gray-600 leading-relaxed">${benefit.desc}</p>
                 </div>
               `).join('')}
-            </div>
-          </div>
-        </section>
-
-        <!-- Timeline Section -->
-        <section class="py-20 md:py-28">
-          <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-16 scroll-animate">
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Launch Timeline</h2>
-              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Here's what to expect as we prepare to launch Rapid Rescue.
-              </p>
-            </div>
-
-            <div class="relative">
-              <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
-              ${[
-                {
-                  phase: 'Phase 1',
-                  title: 'Waitlist Registration',
-                  date: 'Now - Q1 2024',
-                  desc: 'Sign up for early access and exclusive benefits',
-                  completed: true
-                },
-                {
-                  phase: 'Phase 2',
-                  title: 'Beta Testing',
-                  date: 'Q2 2024',
-                  desc: 'Limited testing with waitlist members in Nairobi',
-                  completed: false
-                },
-                {
-                  phase: 'Phase 3',
-                  title: 'Public Launch',
-                  date: 'Q3 2024',
-                  desc: 'Full public launch with all features available',
-                  completed: false
-                },
-                {
-                  phase: 'Phase 4',
-                  title: 'Expansion',
-                  date: 'Q4 2024',
-                  desc: 'Expand to other major Kenyan cities',
-                  completed: false
-                }
-              ].map((phase, i) => `
-                <div class="relative flex items-center mb-12 scroll-animate" style="animation-delay: ${i * 150}ms">
-                  <div class="flex-1 ${i % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8 order-2'}">
-                    <div class="bg-white rounded-xl p-6 shadow-lg ${i % 2 === 0 ? 'ml-auto' : 'mr-auto'} max-w-md">
-                      <div class="flex items-center ${i % 2 === 0 ? 'justify-end' : ''} mb-2">
-                        <span class="px-3 py-1 text-xs font-semibold rounded-full ${
-                          phase.completed ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
-                        }">
-                          ${phase.phase}
-                        </span>
-                      </div>
-                      <h3 class="text-lg font-semibold text-gray-900 mb-2">${phase.title}</h3>
-                      <p class="text-sm text-gray-600 mb-2">${phase.date}</p>
-                      <p class="text-gray-600 leading-relaxed">${phase.desc}</p>
-                    </div>
-                  </div>
-                  <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full ${
-                    phase.completed ? 'bg-green-600' : 'bg-gray-300'
-                  } border-4 border-white"></div>
-                  <div class="flex-1"></div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="py-20 md:py-28 bg-gray-50">
-          <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-16 scroll-animate">
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Join the Movement</h2>
-              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Be part of Kenya's largest emergency response network.
-              </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="text-center scroll-animate">
-                <div class="text-4xl font-bold text-red-600 mb-2">
-                  <span class="counter" data-count="5000">0</span>+
-                </div>
-                <p class="text-gray-600">Waitlist Members</p>
-              </div>
-              <div class="text-center scroll-animate" style="animation-delay: 100ms">
-                <div class="text-4xl font-bold text-red-600 mb-2">
-                  <span class="counter" data-count="15">0</span>
-                </div>
-                <p class="text-gray-600">Hospital Partners</p>
-              </div>
-              <div class="text-center scroll-animate" style="animation-delay: 200ms">
-                <div class="text-4xl font-bold text-red-600 mb-2">
-                  <span class="counter" data-count="30">0</span>
-                </div>
-                <p class="text-gray-600">Security Firms</p>
-              </div>
             </div>
           </div>
         </section>
@@ -198,111 +103,75 @@ class Waitlist extends Page {
       </div>
 
       <form id="waitlist-form" class="space-y-6">
+        <div>
+          <label for="fullName" class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName"
+            class="form-input" 
+            placeholder="Your name"
+            required
+          />
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="firstName" class="form-label">First Name</label>
+            <label for="email" class="form-label">Email</label>
             <input 
-              type="text" 
-              id="firstName" 
-              name="firstName"
+              type="email" 
+              id="email" 
+              name="email"
               class="form-input" 
-              placeholder="John"
+              placeholder="you@example.com"
               required
             />
           </div>
           <div>
-            <label for="lastName" class="form-label">Last Name</label>
+            <label for="phone" class="form-label">Phone</label>
             <input 
-              type="text" 
-              id="lastName" 
-              name="lastName"
+              type="tel" 
+              id="phone" 
+              name="phone"
               class="form-input" 
-              placeholder="Doe"
+              placeholder="+254..."
               required
             />
           </div>
         </div>
 
-        <div>
-          <label for="email" class="form-label">Email Address</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email"
-            class="form-input" 
-            placeholder="john.doe@example.com"
-            required
-          />
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="city" class="form-label">City</label>
+            <input 
+              type="text" 
+              id="city" 
+              name="city"
+              class="form-input" 
+              placeholder="Nairobi"
+              required
+            />
+          </div>
+          <div>
+            <label for="interest" class="form-label">Interest</label>
+            <select id="interest" name="interest" class="form-input" required>
+              <option value="">Select interest</option>
+              <option value="early-access">Early Access User</option>
+              <option value="investor">Investor</option>
+              <option value="business">Business/ Corporate Partnership</option>
+              <option value="other">Other</option>
 
-        <div>
-          <label for="phone" class="form-label">Phone Number</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone"
-            class="form-input" 
-            placeholder="+254 700 000 000"
-            required
-          />
-        </div>
-
-        <div>
-          <label for="county" class="form-label">County/Region</label>
-          <select id="county" name="county" class="form-input" required>
-            <option value="">Select your county</option>
-            <option value="nairobi">Nairobi</option>
-            <option value="mombasa">Mombasa</option>
-            <option value="kisumu">Kisumu</option>
-            <option value="nakuru">Nakuru</option>
-            <option value="eldoret">Eldoret</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="plan" class="form-label">Interested Plan</label>
-          <select id="plan" name="plan" class="form-input" required>
-            <option value="">Select a plan</option>
-            <option value="student">Student Plan (KES 100/month)</option>
-            <option value="standard">Standard Plan (KES 500/month)</option>
-            <option value="family">Family Plan (KES 1,200/month)</option>
-            <option value="not-sure">Not sure yet</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="referral" class="form-label">How did you hear about us?</label>
-          <select id="referral" name="referral" class="form-input">
-            <option value="">Select an option</option>
-            <option value="social-media">Social Media</option>
-            <option value="friend">Friend or Family</option>
-            <option value="news">News Article</option>
-            <option value="event">Community Event</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="flex items-start">
-          <input 
-            type="checkbox" 
-            id="terms" 
-            name="terms"
-            class="mt-1 mr-3"
-            required
-          />
-          <label for="terms" class="text-sm text-gray-600">
-            I agree to receive updates about Rapid Rescue and understand that my information will be used to contact me about the service launch.
-          </label>
+            </select>
+          </div>
         </div>
 
         <button 
           type="submit" 
           id="waitlist-submit"
-          class="btn-primary w-full flex items-center justify-center"
+          class="w-full flex items-center justify-center gap-2 py-4 px-8 bg-gradient-to-r from-red-600 to-red-500 text-white font-semibold text-lg rounded-full hover:from-red-700 hover:to-red-600 transition-all duration-300 shadow-lg hover:shadow-xl hover-lift"
           ${this.submitting ? 'disabled' : ''}
         >
-          ${this.submitting ? '<div class="spinner mr-2"></div>Joining...' : 'Join Waitlist'}
+          ${this.submitting ? '<div class="spinner mr-2"></div>Joining...' : 'Join the Waiting List <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>'}
         </button>
       </form>
     `;
@@ -315,6 +184,11 @@ class Waitlist extends Page {
           ${this.getIcon('check', 'w-8 h-8 text-green-600')}
         </div>
         <h2 class="text-2xl font-bold text-gray-900 mb-4">You're on the List!</h2>
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+          <span class="text-xl font-bold text-red-600 waitlist-count">0</span>
+          <span class="text-xl text-gray-500">People Already Joined</span>
+        </div>
         <p class="text-gray-600 mb-8">
           Thank you for joining the Rapid Rescue waitlist. We'll keep you updated on our launch timeline and send you exclusive early access information.
         </p>
@@ -371,8 +245,30 @@ class Waitlist extends Page {
 
         const formData = new FormData(form);
         
-        // Simulate API call
-        setTimeout(() => {
+        // Prepare data for Google Apps Script
+        const submissionData = {
+          name: formData.get('fullName'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          city: formData.get('city'),
+          interest: formData.get('interest'),
+          timestamp: new Date().toISOString()
+        };
+
+        try {
+          // Send data to Google Apps Script webhook
+          const response = await fetch('https://script.google.com/macros/s/AKfycby9NnUgDmKaqIxLk3fEoJS3VyW9ysq10gSBzSxUiabj4BjyOG4T8pIp2J9bZAPn9n92IQ/exec', {
+            method: 'POST',
+            mode: 'no-cors', // Required for Google Apps Script
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(submissionData)
+          });
+
+          // Increment the persistent waitlist counter
+          await window.waitlistCounter.increment();
+
           this.submitted = true;
           this.submitting = false;
           submitBtn.disabled = false;
@@ -380,9 +276,21 @@ class Waitlist extends Page {
           // Re-render the page with success message
           this.render();
           
+          // Refresh counter display with animation
+          await window.waitlistCounter.refreshAllDisplays(true);
+
           // Setup counters for stats
           this.setupCounters();
-        }, 2000);
+        } catch (error) {
+          console.error('Error submitting to Google Apps Script:', error);
+          
+          // Still show success to user even if webhook fails
+          this.submitted = true;
+          this.submitting = false;
+          submitBtn.disabled = false;
+          this.render();
+          this.setupCounters();
+        }
       });
     }
 
@@ -390,6 +298,9 @@ class Waitlist extends Page {
     if (!this.submitted) {
       this.setupCounters();
     }
+
+    // Refresh the live waitlist tally on page load
+    window.waitlistCounter.refreshAllDisplays(true);
   }
 
   setupCounters() {

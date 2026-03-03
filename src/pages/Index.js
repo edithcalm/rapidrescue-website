@@ -28,7 +28,6 @@ class Index extends Page {
       { title: "Traffic Delays", desc: "Nairobi's congestion makes traditional ambulance response dangerously slow. Rapid Rescue routes around this." },
       { title: "Security Density", desc: "Kenya's extensive private security network becomes a rapid-response asset when integrated digitally." },
       { title: "Community Proximity", desc: "Dense urban neighborhoods mean trained bystanders can reach you within seconds, not minutes." },
-      { title: "Student Access", desc: "A 100 Ksh accessibility plan ensures university students and young professionals can participate." },
     ];
 
     this.wearableFeatures = [
@@ -38,9 +37,9 @@ class Index extends Page {
     ];
 
     this.wearableVariants = [
-      { name: "Heritage Edition", desc: "Vibrant African-inspired pattern" },
-      { name: "Stealth Edition", desc: "Subtle, professional design" },
-      { name: "Ocean Edition", desc: "Cool tones, relaxed style" },
+      { name: "Heritage Edition", desc: "Vibrant African-inspired pattern", image: "./public/images/Bracelet 1.png" },
+      { name: "Stealth Edition", desc: "Subtle, professional design", image: "./public/images/Bracelet 2.png" },
+      { name: "Ocean Edition", desc: "Cool tones, relaxed style", image: "./public/images/bracelet 3.png" },
     ];
   }
 
@@ -49,22 +48,27 @@ class Index extends Page {
       <main>
         <!-- Hero Section -->
         <section class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-red-600 via-red-600 to-red-600/80">
-          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsla(0,0%,100%,0.1)_0%,_transparent_60%)]" />
-          <div class="relative container mx-auto px-4 py-32 text-white max-w-4xl">
-            <div class="max-w-2xl scroll-animate">
-              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
-                Integrated Emergency Response, Reimagined.
-              </h1>
-              <p class="text-lg sm:text-xl opacity-90 mb-10 leading-relaxed max-w-xl">
-                Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem.
-              </p>
-              <div class="flex flex-wrap gap-4">
-                <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100" data-route>
-                  Join the Waitlist
-                </a>
-                <a href="#problem" class="btn-secondary border-white/30 text-white hover:bg-white/10">
-                  Learn More
-                </a>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsla(0,0%,100%,0.1)_0%,_transparent_60%)]"></div>
+          <div class="relative container mx-auto px-4 py-32 text-white max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div class="scroll-animate">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
+                  Integrated Emergency Response, Reimagined.
+                </h1>
+                <p class="text-lg sm:text-xl opacity-90 mb-10 leading-relaxed max-w-xl">
+                  Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100 hover-lift" data-route>
+                    Join the Waitlist
+                  </a>
+                  <a href="#problem" class="inline-block px-6 py-3 rounded-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-red-600 transition-all duration-300 hover-lift">
+                    Learn More
+                  </a>
+                </div>
+              </div>
+              <div class="scroll-animate flex justify-center" style="animation-delay: 200ms">
+                <img src="./public/images/Bracelet 2.png" alt="Rapid Rescue Wearable Bracelet" class="w-full max-w-md drop-shadow-2xl" style="mix-blend-mode: multiply;">
               </div>
             </div>
           </div>
@@ -94,10 +98,10 @@ class Index extends Page {
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Rapid Rescue Ecosystem</h2>
               <p class="text-lg text-gray-600 max-w-2xl mx-auto">Four synchronized layers working together to eliminate response delays.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 stagger-container">
               ${this.ecosystemLayers.map((layer, i) => `
-                <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full scroll-animate" style="animation-delay: ${i * 100}ms">
-                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-5 transition-transform duration-300 hover:scale-110">
+                <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full scroll-animate card-hover stagger-item pulse-on-visible" style="animation-delay: ${i * 100}ms">
+                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110 icon-container">
                     ${this.getIcon(layer.icon, 'w-6 h-6 text-red-600')}
                   </div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-3">${layer.title}</h3>
@@ -117,10 +121,10 @@ class Index extends Page {
             </div>
 
             <!-- Features -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 stagger-container">
               ${this.wearableFeatures.map((feature, i) => `
-                <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate" style="animation-delay: ${i * 100}ms">
-                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-5 transition-transform duration-300 hover:scale-110">
+                <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-animate card-hover stagger-item" style="animation-delay: ${i * 100}ms">
+                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-red-600/10 mb-4 transition-transform duration-300 hover:scale-110 icon-container">
                     ${this.getIcon(feature.icon, 'w-6 h-6 text-red-600')}
                   </div>
                   <h4 class="font-semibold text-gray-900 mb-2">${feature.title}</h4>
@@ -133,10 +137,8 @@ class Index extends Page {
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
               ${this.wearableVariants.map((variant, i) => `
                 <div class="text-center group scroll-animate" style="animation-delay: ${i * 120}ms">
-                  <div class="rounded-2xl bg-gray-100 p-6 mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-                    <div class="w-full max-w-[220px] mx-auto aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span class="text-gray-500 text-sm">Wearable Image</span>
-                    </div>
+                  <div class="rounded-2xl bg-gray-50 p-6 mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                    <img src="${variant.image}" alt="${variant.name}" class="w-full max-w-[250px] mx-auto object-contain" loading="lazy">
                   </div>
                   <h4 class="font-semibold text-gray-900 mb-1">${variant.name}</h4>
                   <p class="text-sm text-gray-600">${variant.desc}</p>
@@ -153,19 +155,15 @@ class Index extends Page {
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why It Matters in Kenya</h2>
               <p class="text-lg text-gray-600 max-w-2xl mx-auto">Designed specifically for Nairobi's unique urban landscape and community dynamics.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-container">
               ${this.kenyaReasons.map((reason, i) => `
-                <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full scroll-animate" style="animation-delay: ${i * 100}ms">
+                <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full scroll-animate card-hover stagger-item pulse-on-visible" style="animation-delay: ${i * 100}ms">
                   <h3 class="text-lg font-semibold text-gray-900 mb-3">${reason.title}</h3>
                   <p class="text-sm text-gray-600 leading-relaxed">${reason.desc}</p>
                 </div>
               `).join('')}
             </div>
-            <div class="text-center scroll-animate">
-              <p class="text-xs text-gray-500 mt-8 max-w-xl mx-auto">
-                Rapid Rescue follows an integration approach with existing infrastructure. No active partnerships are being claimed at this stage.
-              </p>
-            </div>
+          
           </div>
         </section>
 

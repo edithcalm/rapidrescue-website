@@ -24,7 +24,7 @@ class About extends Page {
             <div class="max-w-3xl mx-auto text-center scroll-animate">
               <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">About Rapid Rescue</h1>
               <p class="text-lg text-gray-600 leading-relaxed">
-                Eliminating Golden Hour delays by transforming bystanders into first responders and wearables into life-saving data hubs.
+                Eliminating Golden Hour delays by getting fast responses and wearables into life-saving data hubs.
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ class About extends Page {
             <div class="text-center mb-16 scroll-animate">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
               <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                To create a world where emergency response is instantaneous, coordinated, and effective—saving lives through technology and community collaboration.
+                To create a world where emergency response is instantaneous, coordinated, and effective, saving lives through technology and community collaboration.
               </p>
             </div>
             
@@ -73,38 +73,7 @@ class About extends Page {
           </div>
         </section>
 
-        <!-- Story Section -->
-        <section class="py-20 md:py-28">
-          <div class="container mx-auto px-4 max-w-4xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div class="scroll-animate">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The Story Behind Rapid Rescue</h2>
-                <div class="space-y-4 text-gray-600 leading-relaxed">
-                  <p>
-                    Born from the harsh reality of Nairobi's traffic congestion and the critical need for faster emergency response, Rapid Rescue began as a simple question: What if we could turn every smartphone user into a potential first responder?
-                  </p>
-                  <p>
-                    Our founders witnessed firsthand how delays in emergency situations can mean the difference between life and death. They envisioned a system that could leverage Kenya's high mobile phone penetration and strong community networks to create a distributed emergency response network.
-                  </p>
-                  <p>
-                    Today, that vision is becoming reality through innovative wearable technology, smart routing algorithms, and a community-driven approach that puts human life at the center of everything we do.
-                  </p>
-                </div>
-              </div>
-              <div class="scroll-animate" style="animation-delay: 200ms">
-                <div class="bg-gray-100 rounded-2xl p-8 h-full min-h-[400px] flex items-center justify-center">
-                  <div class="text-center text-gray-500">
-                    <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      ${this.getIcon('users', 'w-12 h-12')}
-                    </div>
-                    <p class="text-sm">Team Photo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        
         <!-- Technology Section -->
         <section class="py-20 md:py-28 bg-gray-50">
           <div class="container mx-auto px-4 max-w-4xl">
@@ -161,23 +130,6 @@ class About extends Page {
           </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-20 md:py-28 bg-red-600">
-          <div class="container mx-auto px-4 max-w-4xl text-center scroll-animate">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join Us in Saving Lives</h2>
-            <p class="text-white/80 mb-8 max-w-lg mx-auto">
-              Be part of the solution. Whether you're a healthcare provider, security firm, or concerned citizen, there's a role for you in the Rapid Rescue ecosystem.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100" data-route>
-                Join Waitlist
-              </a>
-              <a href="/contact" class="btn-secondary border-white/30 text-white hover:bg-white/10" data-route>
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
     `;
   }
