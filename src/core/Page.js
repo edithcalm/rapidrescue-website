@@ -9,6 +9,13 @@ class Page {
             mainContent.innerHTML = await this.getHTML();
             this.setupEventListeners();
             this.setupAnimations();
+            
+            // Initialize waitlist counters with real-time data
+            if (window.updateAllWaitlistCounters) {
+                setTimeout(async () => {
+                    await window.updateAllWaitlistCounters(false);
+                }, 500);
+            }
         }
     }
 

@@ -150,38 +150,122 @@ async function initializeGoogleAppsIntegration() {
     });
   };
   
+  // Function to update all waitlist counters with real-time data
+  window.updateAllWaitlistCounters = async function(animate = false) {
+    try {
+      // Get real count from spreadsheet
+      const realCount = await window.getWaitlistCount();
+      
+      if (realCount !== null && realCount >= 0) {
+        // Update all counter displays with real count
+        const counters = document.querySelectorAll('.waitlist-count, .counter');
+        counters.forEach(counter => {
+          const currentText = counter.textContent;
+          const currentCount = parseInt(currentText) || 0;
+          
+          // Update the count
+          counter.textContent = realCount;
+          counter.setAttribute('data-count', realCount);
+          
+          // Add animation if requested and count changed
+          if (animate && realCount !== currentCount) {
+            counter.classList.add('counting');
+            setTimeout(() => counter.classList.remove('counting'), 1000);
+          }
+        });
+        
+        // Update persistent storage as backup
+        localStorage.setItem('waitlistCount', realCount.toString());
+        
+        console.log(`Updated waitlist count to: ${realCount}`);
+        return realCount;
+      } else {
+        // Fallback to stored count or default
+        const fallbackCount = localStorage.getItem('waitlistCount') || '505';
+        const counters = document.querySelectorAll('.waitlist-count, .counter');
+        counters.forEach(counter => {
+          counter.textContent = fallbackCount;
+          counter.setAttribute('data-count', fallbackCount);
+        });
+        console.log('Using fallback count:', fallbackCount);
+        return parseInt(fallbackCount);
+      }
+    } catch (error) {
+      console.error('Error updating waitlist counters:', error);
+      return null;
+    }
+  };
+  
+  // Initialize counters immediately when page loads
+  window.initializeWaitlistCounters = async function() {
+    // First, update with real-time data
+    await window.updateAllWaitlistCounters(false);
+    
+    // Set up periodic updates (every 30 seconds) - only when online
+    const updateInterval = setInterval(async () => {
+      if (navigator.onLine) {
+        await window.updateAllWaitlistCounters(false);
+      }
+    }, 30000);
+    
+    // Handle network status changes
+    window.addEventListener('online', async () => {
+      console.log('Network restored - updating waitlist count');
+      await window.updateAllWaitlistCounters(true);
+    });
+    
+    window.addEventListener('offline', () => {
+      console.log('Network offline - using cached count');
+    });
+    
+    // Also update when page becomes visible again (user returns to tab)
+    document.addEventListener('visibilitychange', async () => {
+      if (!document.hidden && navigator.onLine) {
+        await window.updateAllWaitlistCounters(false);
+      }
+    });
+    
+    // Update when user clicks on waitlist-related elements
+    document.addEventListener('click', async (e) => {
+      if (e.target.closest('.waitlist-count, .counter, [href*="waitlist"]')) {
+        if (navigator.onLine) {
+          await window.updateAllWaitlistCounters(true);
+        }
+      }
+    });
+    
+    // Store interval ID for cleanup if needed
+    window.waitlistUpdateInterval = updateInterval;
+  };
+  
   // Update existing waitlist counter to use real data if available
   if (window.waitlistCounter) {
     const originalRefreshAllDisplays = window.waitlistCounter.refreshAllDisplays;
     window.waitlistCounter.refreshAllDisplays = async function(animate = false) {
-      // Try to get real count first
-      const realCount = await window.getWaitlistCount();
+      // Use the new real-time update function
+      await window.updateAllWaitlistCounters(animate);
       
-      if (realCount !== null) {
-        // Update all counter displays with real count
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-          const target = parseInt(counter.getAttribute('data-count'));
-          counter.setAttribute('data-count', realCount);
-          counter.textContent = realCount;
-        });
-        
-        // Update persistent storage
-        localStorage.setItem('waitlistCount', realCount.toString());
-        
-        if (animate) {
-          // Trigger animation
-          counters.forEach(counter => {
-            counter.classList.add('counting');
-            setTimeout(() => counter.classList.remove('counting'), 1000);
-          });
-        }
-        
-        return;
+      // Call original function if it exists
+      if (originalRefreshAllDisplays) {
+        originalRefreshAllDisplays.call(this, animate);
+      }
+    };
+    
+    // Override increment to also refresh from server
+    const originalIncrement = window.waitlistCounter.increment;
+    window.waitlistCounter.increment = async function() {
+      // Call original increment
+      if (originalIncrement) {
+        await originalIncrement.call(this);
       }
       
-      // Fall back to original method if real count is not available
-      return originalRefreshAllDisplays.call(this, animate);
+      // Then refresh from server to get latest count
+      setTimeout(async () => {
+        await window.updateAllWaitlistCounters(true);
+      }, 1000);
     };
   }
+  
+  // Initialize counters immediately
+  await window.initializeWaitlistCounters();
 }
