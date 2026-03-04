@@ -290,6 +290,85 @@ select:focus-visible {
   transform: translateX(0);
 }
 
+/* Enhanced mobile menu animations */
+#mobile-menu {
+  transform-origin: top;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu.animate-slide-down {
+  animation: mobileMenuSlideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu.animate-slide-up {
+  animation: mobileMenuSlideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes mobileMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mobileMenuSlideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+}
+
+/* Better touch targets for mobile */
+#mobile-menu a {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* Hamburger menu improvements */
+#mobile-menu-button {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+#mobile-menu-button:active {
+  transform: scale(0.95);
+}
+
+/* Mobile menu link hover effects */
+#mobile-menu a:hover {
+  transform: translateX(4px);
+}
+
+#mobile-menu a:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+/* Force dark text for mobile menu inactive items */
+#mobile-menu a:not([href="/waitlist"]) {
+  color: #374151 !important;
+}
+
+#mobile-menu a:not([href="/waitlist"]).bg-red-600 {
+  color: white !important;
+}
+
+/* Additional override for inactive menu items */
+#mobile-menu a.text-gray-800 {
+  color: #374151 !important;
+}
+
+#mobile-menu a.text-gray-800:hover {
+  color: #111827 !important;
+}
+
 /* Form input enhancements */
 .form-input:focus {
   transform: translateY(-1px);
@@ -483,6 +562,23 @@ html {
   .rounded-xl {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  /* Mobile menu specific improvements */
+  #mobile-menu {
+    margin: 0 -1rem;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  #mobile-menu a {
+    font-size: 16px !important;
+    line-height: 1.5;
+  }
+
+  /* Ensure proper spacing on small screens */
+  .mobile-menu-spacing {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 
