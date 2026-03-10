@@ -1,6 +1,6 @@
 // Main application entry point
 
-class RapidRescueApp {
+class WarnETApp {
   constructor() {
     this.currentPage = null;
     this.routes = {
@@ -98,7 +98,7 @@ class RapidRescueApp {
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   try {
-    window.app = new RapidRescueApp();
+    window.app = new WarnETApp();
     
     // Initialize Google Apps Script integration
     initializeGoogleAppsIntegration();

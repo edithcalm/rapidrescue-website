@@ -3,7 +3,7 @@
 
 class WaitlistCounter {
   constructor() {
-    this.STORAGE_KEY = 'rapidrescue_waitlist_count';
+    this.STORAGE_KEY = 'warnet_waitlist_count';
     // Listen for changes in other tabs so every open page stays in sync
     window.addEventListener('storage', (e) => {
       if (e.key === this.STORAGE_KEY) {

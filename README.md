@@ -1,6 +1,6 @@
-# Rapid Rescue Website
+# WarnET Website
 
-A modern, responsive emergency response platform website built with vanilla JavaScript, HTML, and CSS. The website showcases the Rapid Rescue service - a comprehensive emergency response system designed to eliminate response delays in Nairobi, Kenya.
+A modern, responsive emergency response platform website built with vanilla JavaScript, HTML, and CSS. The website showcases the WarnET service - a comprehensive emergency response system designed to eliminate response delays in Nairobi, Kenya.
 
 ## 🚀 Features
 

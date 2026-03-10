@@ -125,7 +125,7 @@ class Contact extends Page {
           <div class="container mx-auto px-4 max-w-4xl text-center scroll-animate">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Want Early Access?</h2>
             <p class="text-white/80 mb-8 max-w-lg mx-auto">
-              Be among the first to experience Rapid Rescue. Join our waitlist today.
+              Be among the first to experience WarnET. Join our waitlist today.
             </p>
             <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100 hover-lift" data-route>
               Join the Waitlist

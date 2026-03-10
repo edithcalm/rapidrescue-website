@@ -18,7 +18,7 @@ class Waitlist extends Page {
               <span class="text-2xl text-gray-500">People Already Joined</span>
             </div>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-animate">
-              Be among the first to experience Rapid Rescue when we launch. Sign up for early access and updates.
+              Be among the first to experience WarnET when we launch. Sign up for early access and updates.
             </p>
           </div>
         </section>
@@ -47,7 +47,7 @@ class Waitlist extends Page {
                 {
                   icon: 'star',
                   title: 'Early Access',
-                  desc: 'Be the first to use Rapid Rescue before public launch'
+                  desc: 'Be the first to use WarnET before public launch'
                 },
                 {
                   icon: 'tag',
@@ -57,7 +57,7 @@ class Waitlist extends Page {
                 {
                   icon: 'gift',
                   title: 'Free Wearable',
-                  desc: 'First 100 members receive a free Rapid Rescue wearable device'
+                  desc: 'First 100 members receive a free WarnET wearable device'
                 },
                 {
                   icon: 'users',
@@ -98,7 +98,7 @@ class Waitlist extends Page {
         </div>
         <h2 class="text-2xl font-bold text-gray-900 mb-4">Secure Your Spot</h2>
         <p class="text-gray-600">
-          Fill out the form below to join thousands of Kenyans waiting for Rapid Rescue.
+          Fill out the form below to join thousands of Kenyans waiting for WarnET.
         </p>
       </div>
 
@@ -190,7 +190,7 @@ class Waitlist extends Page {
           <span class="text-xl text-gray-500">People Already Joined</span>
         </div>
         <p class="text-gray-600 mb-8">
-          Thank you for joining the Rapid Rescue waitlist. We'll keep you updated on our launch timeline and send you exclusive early access information.
+          Thank you for joining the WarnET waitlist. We'll keep you updated on our launch timeline and send you exclusive early access information.
         </p>
         <div class="bg-gray-50 rounded-xl p-6 text-left">
           <h3 class="font-semibold text-gray-900 mb-4">What's Next?</h3>

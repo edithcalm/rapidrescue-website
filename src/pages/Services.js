@@ -103,7 +103,7 @@ class Services extends Page {
             <div class="text-center mb-16 scroll-animate">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
               <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Advanced technology and smart design make Rapid Rescue the most effective emergency response system.
+                Advanced technology and smart design make WarnET the most effective emergency response system.
               </p>
             </div>
 

@@ -1,7 +1,7 @@
 # Google Apps Script Integration Setup Guide
 
 ## Overview
-This integration connects the Rapid Rescue website waitlist form to a Google Spreadsheet using Google Apps Script webhooks.
+This integration connects the WarnET website waitlist form to a Google Spreadsheet using Google Apps Script webhooks.
 
 ## Files Created
 - `google-apps-script.js` - Contains the Google Apps Script code
@@ -20,7 +20,7 @@ This integration connects the Rapid Rescue website waitlist form to a Google Spr
 1. In Google Apps Script editor, click "Deploy" > "New deployment"
 2. Click "Select type" > "Web app"
 3. Configure:
-   - **Description**: "Rapid Rescue Waitlist Webhook"
+   - **Description**: "WarnET Waitlist Webhook"
    - **Execute as**: "Me" (your Google account)
    - **Who has access**: "Anyone" (required for public website access)
 4. Click "Deploy"

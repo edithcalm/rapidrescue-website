@@ -36,10 +36,7 @@ class Navbar {
           <div class="flex items-center justify-between">
             <!-- Logo -->
             <a href="/" class="flex items-center space-x-2" data-route>
-              <div class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                <span class="text-white font-bold text-lg">RR</span>
-              </div>
-              <span class="logo-text font-bold text-xl transition-colors duration-300 text-gray-900">Rapid Rescue</span>
+              <img src="./public/images/WarnET logo.png" alt="WarnET Logo" class="w-20 h-20">
             </a>
 
             <!-- Desktop Navigation -->

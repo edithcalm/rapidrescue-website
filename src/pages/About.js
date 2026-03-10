@@ -22,7 +22,7 @@ class About extends Page {
         <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gray-50">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="max-w-3xl mx-auto text-center scroll-animate">
-              <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">About Rapid Rescue</h1>
+              <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">About WarnET</h1>
               <p class="text-lg text-gray-600 leading-relaxed">
                 Eliminating Golden Hour delays by getting fast responses and wearables into life-saving data hubs.
               </p>

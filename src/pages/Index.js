@@ -25,7 +25,7 @@ class Index extends Page {
     ];
 
     this.kenyaReasons = [
-      { title: "Traffic Delays", desc: "Nairobi's congestion makes traditional ambulance response dangerously slow. Rapid Rescue routes around this." },
+      { title: "Traffic Delays", desc: "Nairobi's congestion makes traditional ambulance response dangerously slow. WarnET routes around this." },
       { title: "Security Density", desc: "Kenya's extensive private security network becomes a rapid-response asset when integrated digitally." },
       { title: "Community Proximity", desc: "Dense urban neighborhoods mean trained bystanders can reach you within seconds, not minutes." },
     ];
@@ -56,7 +56,7 @@ class Index extends Page {
                   Integrated Emergency Response, Reimagined.
                 </h1>
                 <p class="text-lg sm:text-xl opacity-90 mb-10 leading-relaxed max-w-xl">
-                  Rapid Rescue transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem.
+                  WarnET transforms wearables, bystanders, hospitals, and security teams into one synchronized emergency ecosystem.
                 </p>
                 <div class="flex flex-wrap gap-4">
                   <a href="/waitlist" class="btn-primary bg-white text-red-600 hover:bg-gray-100 hover-lift" data-route>
@@ -68,7 +68,7 @@ class Index extends Page {
                 </div>
               </div>
               <div class="scroll-animate flex justify-center" style="animation-delay: 200ms">
-                <img src="./public/images/Bracelet 2.png" alt="Rapid Rescue Wearable Bracelet" class="w-full max-w-md drop-shadow-2xl" style="mix-blend-mode: multiply;">
+                <img src="./public/images/Bracelet 2.png" alt="WarnET Wearable Bracelet" class="w-full max-w-md drop-shadow-2xl" style="mix-blend-mode: multiply;">
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ class Index extends Page {
         <section class="py-20 md:py-28">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-16 scroll-animate">
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Rapid Rescue Ecosystem</h2>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The WarnET Ecosystem</h2>
               <p class="text-lg text-gray-600 max-w-2xl mx-auto">Four synchronized layers working together to eliminate response delays.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 stagger-container">
