@@ -41,7 +41,7 @@ class NotFound extends Page {
                     <ul class="space-y-2">
                       <li><a href="/contact" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>Contact Support</a></li>
                       <li><a href="/waitlist" class="text-red-600 hover:text-red-700 transition-colors link-hover" data-route>Join Waitlist</a></li>
-                      <li><a href="mailto:rapidrescue@gmail.com" class="text-red-600 hover:text-red-700 transition-colors link-hover">Email Us</a></li>
+                      <li><a href="mailto:warnet@gmail.com" class="text-red-600 hover:text-red-700 transition-colors link-hover">Email Us</a></li>
                     </ul>
                   </div>
                 </div>

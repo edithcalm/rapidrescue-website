@@ -111,7 +111,7 @@ class Contact extends Page {
                     </div>
                     <div>
                       <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                      <p class="text-gray-600">rapidrescue@gmail.com</p>
+                      <p class="text-gray-600">warnet@gmail.com, warnet@eveshield.org</p>
                     </div>
                   </div>
                 </div>
