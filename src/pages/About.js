@@ -31,7 +31,7 @@ class About extends Page {
         </section>
 
         <!-- Stats Section -->
-        <section class="py-20 md:py-28">
+        <section class="py-12 md:py-16">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               ${this.stats.map((stat, i) => `

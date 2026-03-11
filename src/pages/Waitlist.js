@@ -24,7 +24,7 @@ class Waitlist extends Page {
         </section>
 
         <!-- Waitlist Form Section -->
-        <section class="py-20 md:py-28">
+        <section class="py-12 md:py-16">
           <div class="container mx-auto px-4 max-w-2xl">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 scroll-animate">
               ${this.submitted ? this.getSuccessMessage() : this.getForm()}

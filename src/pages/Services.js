@@ -43,7 +43,7 @@ class Services extends Page {
         </section>
 
         <!-- Services Grid -->
-        <section class="py-20 md:py-28">
+        <section class="py-12 md:py-16">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-container">
               ${this.services.map((service, i) => `
@@ -98,7 +98,7 @@ class Services extends Page {
         </section>
 
         <!-- Features -->
-        <section class="py-20 md:py-28">
+        <section class="py-12 md:py-16">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-16 scroll-animate">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Key Features</h2>

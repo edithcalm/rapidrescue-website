@@ -19,7 +19,7 @@ class Contact extends Page {
         </section>
 
         <!-- Contact Content -->
-        <section class="py-20 md:py-28">
+        <section class="py-12 md:py-16">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <!-- Contact Form -->

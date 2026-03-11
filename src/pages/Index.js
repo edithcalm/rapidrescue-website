@@ -75,7 +75,7 @@ class Index extends Page {
         </section>
 
         <!-- Problem Section -->
-        <section id="problem" class="py-20 md:py-28 bg-gray-50">
+        <section id="problem" class="py-12 md:py-16 bg-gray-50">
           <div class="container mx-auto px-4 max-w-4xl scroll-animate">
             <div class="text-center mb-12">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Problem</h2>
@@ -92,7 +92,7 @@ class Index extends Page {
         </section>
 
         <!-- Ecosystem Section -->
-        <section class="py-20 md:py-28">
+        <section class="py-12 md:py-16">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-16 scroll-animate">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The WarnET Ecosystem</h2>
@@ -113,7 +113,7 @@ class Index extends Page {
         </section>
 
         <!-- Wearable Section -->
-        <section class="py-20 md:py-28 bg-gray-50">
+        <section class="py-12 md:py-16 bg-gray-50">
           <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-16 scroll-animate">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Wearable That Connects You to Help</h2>
